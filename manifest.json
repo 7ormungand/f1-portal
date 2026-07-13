@@ -2,7 +2,7 @@
   "name": "Formula 1 Portal",
   "short_name": "F1 Portal",
   "description": "App with news and results Formula 1",
-  "start_url": "/index.html",
+  "start_url": "f1-portal/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#e10600",
