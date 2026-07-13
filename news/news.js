@@ -19,7 +19,7 @@ function renderNews(title, link, dateFormatted) {
 
 async function loadNews() {
     try {
-        const response = await fetch('https://formula-1.com/api/news.php');
+        const response = await fetch('../api/news.php');
         const news = await response.json();
 
         const newsContainer = document.getElementById('list-news-tubs');
