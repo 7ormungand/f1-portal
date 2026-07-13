@@ -23,7 +23,7 @@ function renderReviewCard(name, text, dateFormatted) {
 
 async function loadReviews() {
     try {
-        const response = await fetch('https://formula-1.com/api/reviews.php');
+        const response = await fetch('../api/reviews.php');
         const reviews = await response.json();
 
         const reviewsContainer = document.getElementById('reviewsContainer');
@@ -58,7 +58,7 @@ async function addReview() {
     };
 
     try {
-        const response = await fetch('https://formula-1.com/api/reviews.php', {
+        const response = await fetch('../api/reviews.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
