@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1 | ToDoList</title>
+    <script src="./todo.js"></script>
+    <link rel="icon" href="https://formula-1.com/icons/Logo-F1.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    
+    <header class="header_main">
+        <div class="top_bar">
+            <span class="fia"><img src="../img/fia.svg" alt="Fia"></span>
+            <ul class="formuls">
+                <li>F1</li>
+                <li>F2</li>
+                <li>F3</li>
+                <li>F1 Academy</li>
+            </ul>
+            <img src="../img/f1_tv.svg" alt="F1_TV" class="f1_tv_logo">
+            <button class="sign_in"><img src="../img/Profile.svg" alt=""><span>SIGN IN</span></button>
+        </div>
+        <div class="nav_bar">
+            <div class="nav_bar_main">
+                <a href="../"><img src="../img/Logo-F1.svg" alt="F1-logo" class="logo"></a>
+                <nav>
+                    <ul>
+                        <li class="header__nav"><a href="../news">News</a></li>
+                        <li class="header__nav"><a href="../results">Results</a></li>
+                        <li class="header__nav"><a href="../drivers">Drivers</a></li>
+                        <li class="header__nav"><a href="../reviews">Reviews</a></li>
+                        <li class="header__nav"><a href="../todolist">ToDoList</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main_container">
+        <section class="news_section_wrapper">
+            <form name="toDoForm" class="p-3 bg-light rounded shadow-sm my-4">
+                <div class="row align-items-center my-3">
+                    <div class="col-md-4 my-1">
+                        <input name="title" class="form-control" type="text" placeholder="Введите название" required>
+                    </div>
+
+                    <div class="col-md-3 my-1">
+                        <input name="date" class="form-control" type="date" required>
+                    </div>
+
+                    <div class="col-md-3 my-1">
+                        <select name="priority" class="form-select">
+                            <option value="high">Высокий приоритет</option>
+                            <option value="medium" selected>Средний приоритет</option>
+                            <option value="low">Низкий приоритет</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-2 my-1">
+                        <div class="d-flex justify-content-around align-items-center">
+                            <input name="color" type="color" class="form-control form-control-color" value="#198754">
+                            <label class="ms-2 small text-muted">Цвет</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-2 mb-3">
+                    <div class="col-md-9 my-1">
+                        <textarea name="description" class="form-control" placeholder="Введите описание" rows="1"></textarea>
+                    </div>
+                    
+                    <div class="col-md-3 my-1 d-grid">
+                        <button type="button" class="btn btn-primary" onclick="addToDo()">Добавить задачу</button>
+                    </div>
+                </div>
+            </form>
+
+            
+            <div class="row g-2 align-items-center my-3 p-2 bg-light rounded border">
+                <div class="col-md-4">
+                    <select id="filterPriority" class="form-select form-select-sm" onchange="applyFilterAndRender()">
+                        <option value="all">Показать все приоритеты</option>
+                        <option value="high">Только Высокий</option>
+                        <option value="medium">Только Средний</option>
+                        <option value="low">Только Низкий</option>
+                    </select>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="btn-group btn-group-sm w-100" role="group">
+                        <button type="button" class="btn btn-outline-secondary" onclick="setSortDirection('asc')">Дата ↑</button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="setSortDirection('desc')">Дата ↓</button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="setSortDirection('none')">Сбросить</button>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <span class="small text-muted">Фильтры и сортировка</span>
+                </div>
+            </div>
+
+           
+            <div class="d-flex justify-content-between align-items-center my-3 p-2 border-bottom">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="selectAll" onclick="toggleSelectAll(this)">
+                    <label class="form-check-label text-muted small" for="selectAll">Выбрать все</label>
+                </div>
+                <button type="button" class="btn btn-danger btn-sm" onclick="deleteSelected()">Удалить выделенные</button>
+            </div>
+
+            <div class="container px-0" id="toDoContainer"></div>
+        </section>
+
+        <section class="explore_topics_section">
+            <div class="explore_container">
+                <h2 class="explore_title">Explore F1 Topics</h2>
+                <div class="topics_grid">
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Sustainability">
+                        <h3>Sustainability</h3>
+                    </div>
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Race calendar">
+                        <h3>Race calendar</h3>
+                    </div>
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Podcast">
+                        <h3>Podcast</h3>
+                    </div>
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Esports">
+                        <h3>Esports</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+    </main>
+
+    <footer class="footer_main">
+        <div class="footer_inner">
+            <div class="footer_apps_socials">
+                <div class="apps">
+                    <span>DOWNLOAD THE OFFICIAL F1 APP</span>
+                    <a href="https://play.google.com/store/apps/details?id=com.softpauer.f1timingapp2014.basic" target="_blank"><img src="../img/google-play-badge.png" alt="Google Play" class="store_badge"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_bottom">
+            <p>© 2026 Formula One World Championship Limited.</p>
+            <p>Moscow, Avtomotornaya Street, 2 | Phone: +7 (495) 123-45-67</p>
+        </div>
+    </footer>
+</body>
+</html>

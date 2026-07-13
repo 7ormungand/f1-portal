@@ -1,0 +1,878 @@
+@font-face {
+    font-family: 'Formula1-Bold';
+    src: local('Formula1 Bold'), local('Formula1-Bold'),
+        url('../fonts/Formula1-Bold_web_0.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Regular';
+    src: local('Formula1 Regular'), local('Formula1-Regular'),
+        url('../fonts/Formula1-Regular_web_0.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: local('Formula1 Wide'), local('Formula1-Wide'),
+        url('../fonts/Formula1-Wide_web_0.ttf') format('truetype');
+}
+
+:root {
+    --white: #FFFFFF;
+    --f1-red: #E10500;
+    --f1-dark: #1E1F26;
+    --f1-gray: #A0A0A0;
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+html, body {
+    overflow-x: hidden; /* чтобы не прокручивалась горизонтально  */
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Formula1-Regular', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+/*      HEADER     */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.top_bar {
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    height: 40px;
+    border: none;
+}
+
+.fia {
+    border-right: 0.5px solid var(--f1-gray);
+    padding-right: 9px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.formuls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    font-family: 'Formula1-Bold';
+    color: var(--f1-gray);
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.formuls li {
+    margin: 0 6px;
+}
+
+.formuls li:last-of-type {
+    margin-right: 520px;
+}
+
+.sign_in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 27px;
+    margin-left: auto;
+    background-color: var(--f1-dark);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Formula1-Regular';
+    font-size: 7px;
+    color: #FFFFFF;
+}
+
+.sign_in img {
+    margin-right: 4px;
+}
+
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--f1-red);
+}
+
+.nav_bar_main {
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    height: 60px;
+    font-family: 'Formula1-Regular';
+}
+
+.nav_bar_main ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_bar_main .logo {
+    margin-right: 40px;
+    height: 30px;
+}
+
+.nav_bar_main li {
+    margin-right: 25px;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+.nav_bar_main li a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav_bar_main li a:hover {
+    color: #FFFFFF;
+}
+
+
+/*      MAIN      */
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
+/*      REVIEWS      */
+.user_reviews_section {
+    width: 1000px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 700px;
+}
+
+.reviews_block_layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid var(--f1-red);
+    height: auto;
+}
+
+.f1_review_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.f1_review_form input, .f1_review_form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Formula1-Regular';
+    font-size: 14px;
+}
+
+.f1_review_form button {
+    background: var(--f1-red);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-family: 'Formula1-Bold';
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.reviews_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.f1_review_form textarea {
+    resize: vertical;
+}
+
+.review_card {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.review_card h4 {
+    margin: 0 0 5px 0;
+    color: var(--f1-red);
+    font-family: 'Formula1-Bold';
+}
+
+.review_card p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.review_date {
+    font-size: 13px;
+}
+
+#reviewText {
+    min-height: 300px;
+    max-height: 500px;
+}
+
+
+
+/*      FOOTER      */
+.footer_main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding-bottom: 0 !important;
+    width: 100%;
+    background-color: #15161A;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer_inner {
+    width: 1000px;
+}
+
+.footer_apps_socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.apps {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Formula1-Bold';
+    font-size: 12px;
+}
+
+.store_badge {
+    height: 35px;
+}
+
+.footer_divider {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin-bottom: 30px;
+}
+
+.footer_bottom {
+    width: 100%;
+    background-color: #242528;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #2d2f34;
+    margin-top: 40px;
+}
+
+.footer_bottom p {
+    margin: 0;
+    font-size: 13px;
+    color: #a0a0a0;
+    font-family: 'Formula1-Regular', sans-serif;
+    line-height: 1.6;
+}
+
+
+
+/*      MAIN_SHEET       */
+.news_section_wrapper {
+    width: 1000px;
+    margin-top: 40px;
+}
+
+.section_title {
+    font-family: 'Formula1-Bold';
+    font-size: 22px;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+/*  красная рамка  */
+.f1_news_grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 15px;
+    border: 3px solid var(--f1-red);
+    border-top-right-radius: 12px;
+    padding: 15px;
+    background: #fff;
+}
+
+/* Карточки новостей */
+.main_story_card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.main_story_card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.card_text {
+    padding-top: 12px;
+}
+
+.news_tag {
+    color: var(--f1-red);
+    font-family: 'Formula1-Bold';
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.main_story_card h3 {
+    font-family: 'Formula1-Bold';
+    font-size: 16px;
+    margin: 8px 0 0 0;
+    line-height: 1.4;
+}
+
+/* Правая сетка 2х2 */
+.sub_stories_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+}
+
+.sub_story_card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.sub_story_card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+.sub_story_card p {
+    font-size: 12px;
+    margin: 5px 0 0 0;
+    font-family: 'Formula1-Bold';
+    line-height: 1.3;
+}
+
+
+
+/*   фиолетовый баннер MOMENTS  */
+.promo_banner {
+    width: 1000px;
+    height: 320px;
+    background: linear-gradient(135deg, #4c1d95, #2563eb);
+    margin-top: 40px;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    color: #fff;
+}
+
+.banner_content {
+    padding: 40px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner_content h2 {
+    font-family: 'Formula1-Bold';
+    font-size: 24px;
+    margin: 0 0 15px 0;
+}
+
+.banner_content p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+    opacity: 0.9;
+}
+
+.btn_watch {
+    align-self: flex-start;
+    background: #fff;
+    color: #4c1d95;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Formula1-Bold';
+    font-size: 11px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.banner_image {
+    width: 45%;
+}
+
+.banner_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/*   Explore F1 Topics  */
+.explore_topics_section {
+    width: 100%;
+    background-color: #2D3035;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.explore_container {
+    width: 1000px;
+}
+
+.explore_title {
+    font-family: 'Formula1-Bold';
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.topics_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.topic_card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 167px;
+    cursor: pointer;
+}
+
+.topic_card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.topic_card h3 {
+    position: absolute;
+    bottom: 68px;
+    left: 18px;
+    color: #fff;
+    margin: 0;
+    font-family: 'Formula1-Bold';
+    font-size: 25px;
+}
+
+
+
+/*      DRIVERS       */
+#driversContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    gap: 30px;           
+    width: 1000px;       
+    margin-top: 30px;
+}
+
+.driver_card {
+    width: 300px;
+    height: auto;
+    background-color: var(--white);
+    border: 1px solid #e1e1e1;
+    border-top: 4px solid var(--f1-red); 
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.driver_card h4, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+.driver_card span{
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.driver_card span h4{
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.driver_card span h3{
+    font-family: 'Formula1-Bold';
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.driver_card span:first-of-type{
+    margin: 12px 0;
+    justify-content: space-between;
+}
+
+.driver_card span:last-of-type{
+    margin-bottom: 12px;
+}
+
+.driver_card .num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--f1-red);
+}
+
+.driver_card .num p {
+    color: var(--white);
+    font-size: 12px;
+}
+
+
+
+/*    NEWs    */
+
+.home_news {
+    width: 100%;
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 15px; 
+}
+
+.home_news img {
+    margin-top: 30px;
+    border-radius: 0 0 12px 12px;
+    width: 100%;      
+    height: auto;     
+    display: block;
+}
+
+.home_news p {
+    display: flex;
+    justify-content: center;
+    text-align: center; 
+    padding: 10px 0;
+}
+
+#list-news-tubs {
+    list-style: none;
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto 0 auto; 
+    padding: 0;
+}
+
+.list-news-el {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 12px 15px;      
+    min-height: 40px;    
+    height: auto;       
+    border-bottom: 1px solid #eee;  
+    background-color: #ffffff;   
+    gap: 15px;            
+}
+
+.list-news-el:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.news-title {
+    flex-grow: 1;       
+    word-break: break-word; /* перенос слов */
+}
+
+.news-title p {
+    margin: 0;
+    text-align: left;
+}
+
+.news-title:hover p {
+    color: #e10600;               
+}
+
+.list-news-el .news-date {
+    color: #777777;               
+    font-size: 13px;
+    padding-left: 0;            
+    white-space: nowrap; 
+    flex-shrink: 0;    /* чтобы дата не сжималась*/ 
+}
+
+
+            /*!!!  Страница новости */
+
+.article_container {
+    width: 1000px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.article_header {
+    margin-bottom: 25px;
+    border-left: 4px solid var(--f1-red); 
+    padding-left: 20px;
+}
+
+.article_meta {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    font-family: 'Formula1-Bold';
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.article_meta .date {
+    color: var(--f1-red);
+}
+
+.article_meta .author {
+    color: var(--f1-gray);
+}
+
+.article_title {
+    font-family: 'Formula1-Bold';
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--f1-dark);
+}
+
+.article_main_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 35px;
+}
+
+.article_body {
+    max-width: 800px;
+    margin: 0 auto;   
+    font-family: 'Formula1-Regular', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.article_body p {
+    margin: 0 0 20px 0;
+    text-align: justify;
+}
+
+.article_body h2 {
+    font-family: 'Formula1-Bold';
+    font-size: 20px;
+    color: var(--f1-dark);
+    margin: 40px 0 15px 0;
+    text-transform: uppercase;
+}
+
+
+@media (max-width: 1040px) {
+    .top_bar, 
+    .nav_bar_main, 
+    .user_reviews_section, 
+    .footer_inner, 
+    .news_section_wrapper, 
+    .promo_banner, 
+    .explore_container, 
+    #driversContainer,
+    .article_container {
+        width: 100%;
+        max-width: 95%;
+        padding: 0 15px;
+    }
+
+    .formuls li:last-of-type {
+        margin-right: auto;
+    }
+
+    #driversContainer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Шапка --- */
+    .top_bar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+        gap: 10px;
+    }
+    
+    .formuls {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .sign_in {
+        margin: 5px auto 0 auto;
+    }
+
+    .nav_bar_main {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    .nav_bar_main .logo {
+        margin-right: 0;
+    }
+
+    .nav_bar_main ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav_bar_main li {
+        margin-right: 0;
+    }
+
+    /* --- Блок отзывов --- */
+    .user_reviews_section {
+        height: auto;
+    }
+
+    .reviews_block_layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Футер --- */
+    .footer_apps_socials {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .apps {
+        flex-direction: column;
+    }
+
+    .f1_news_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sub_stories_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main_story_card img {
+        height: 220px;
+    }
+
+    .promo_banner {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .banner_content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .banner_image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .topics_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article_title {
+        font-size: 24px;
+    }
+    
+    .article_meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    .list-news-el {
+        flex-direction: column;   
+        align-items: flex-start;  
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topics_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .list-news-el {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 5px;
+        padding: 10px 5px;
+    }
+    
+    .list-news-el .news-date {
+        padding-left: 0;
+    }
+}
+

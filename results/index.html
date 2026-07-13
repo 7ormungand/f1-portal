@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 | Results & Standings</title>
+    <script src="../js/scripts.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="https://formula-1.com/icons/Logo-F1.svg" type="image/svg+xml">
+</head>
+<body>
+    
+    <header class="header_main">
+        <div class="top_bar">
+            <span class="fia"><img src="../img/fia.svg" alt="Fia"></span>
+            <ul class="formuls">
+                <li>F1</li>
+                <li>F2</li>
+                <li>F3</li>
+                <li>F1 Academy</li>
+            </ul>
+            <img src="../img/f1_tv.svg" alt="F1_TV" class="f1_tv_logo">
+            <button class="sign_in"><img src="../img/Profile.svg" alt=""><span>SIGN IN</span></button>
+        </div>
+        <div class="nav_bar">
+            <div class="nav_bar_main">
+                <a href="../"><img src="../img/Logo-F1.svg" alt="F1-logo" class="logo"></a>
+                <nav>
+                    <ul>
+                        <li class="header__nav"><a href="../news">News</a></li>
+                        <li class="header__nav"><a href="../results">Results</a></li>
+                        <li class="header__nav"><a href="../drivers">Drivers</a></li>
+                        <li class="header__nav"><a href="../reviews">Reviews</a></li>
+                        <li class="header__nav"><a href="../todolist">ToDoList</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main_container">
+        <section class="news_section_wrapper">
+            <h2 class="section_title">F1 Live Season Standings</h2>
+    
+            <div class="f1_iframe_container">
+                <iframe 
+                    src="https://www.motorsport.com/f1/standings/2026/" 
+                    style="width: 100%; height: 800px; border: none; border-radius: 8px;" 
+                    scrolling="yes">
+                </iframe>
+            </div>
+        </section>
+
+        <section class="explore_topics_section">
+            <div class="explore_container">
+                <h2 class="explore_title">Explore F1 Topics</h2>
+                <div class="topics_grid">
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Sustainability">
+                        <h3>Sustainability</h3>
+                    </div>
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Race calendar">
+                        <h3>Race calendar</h3>
+                    </div>
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Podcast">
+                        <h3>Podcast</h3>
+                    </div>
+                    <div class="topic_card">
+                        <img src="https://formula-1.com/img/bolid.png" alt="Esports">
+                        <h3>Esports</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer class="footer_main">
+        <div class="footer_inner">
+            <div class="footer_apps_socials">
+                <div class="apps">
+                    <span>DOWNLOAD THE OFFICIAL F1 APP</span>
+                    <a href="https://play.google.com/store/apps/details?id=com.softpauer.f1timingapp2014.basic" target="_blank"><img src="../img/google-play-badge.png" alt="Google Play" class="store_badge"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_bottom">
+            <p>© 2026 Formula One World Championship Limited.</p>
+            <p>Moscow, Avtomotornaya Street, 2 | Phone: +7 (495) 123-45-67</p>
+        </div>
+    </footer>
+</body>
+</html>
