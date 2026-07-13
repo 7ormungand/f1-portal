@@ -8,13 +8,13 @@
   "theme_color": "#e10600",
   "icons": [
     {
-      "src": "icons/Logo-F1-192.png",
+      "src": "./icons/Logo-F1-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/Logo-F1-512.png",
+      "src": "./icons/Logo-F1-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -22,14 +22,14 @@
   ],
   "screenshots": [
     {
-      "src": "screenshots/screenshot-mobile.png",
+      "src": "./screenshots/screenshot-mobile.png",
       "sizes": "403x869",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Мобильная версия портала F1"
     },
     {
-      "src": "screenshots/screenshot-pc.png",
+      "src": "./screenshots/screenshot-pc.png",
       "sizes": "1904x951",
       "type": "image/png",
       "form_factor": "wide",
