@@ -1,6 +1,5 @@
 const CACHE_NAME = 'f1-cache-v6';
 const ASSETS = [
-  '/',
   'index.html',
   'css/style.css',
   'js/scripts.js',
