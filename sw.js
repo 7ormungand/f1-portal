@@ -1,6 +1,6 @@
-const CACHE_NAME = 'f1-cache-v5';
+const CACHE_NAME = 'f1-cache-v1';
 const ASSETS = [
-  '/',
+  './',
   '/index.html',
   '/css/style.css',
   '/js/scripts.js',
