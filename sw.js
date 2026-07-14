@@ -1,18 +1,18 @@
-const CACHE_NAME = 'f1-cache-v1';
+const CACHE_NAME = 'f1-cache-v6';
 const ASSETS = [
-  './',
-  '/index.html',
-  '/css/style.css',
-  '/js/scripts.js',
-  '/manifest.json',
-  '/img/Logo-F1.svg',       
-  '/img/fia.svg',           
-  '/img/f1_tv.svg',
-  '/news/index.html',       
-  '/results/index.html',   
-  '/drivers/index.html',   
-  '/reviews/index.html',    
-  '/todolist/index.html'
+  '/',
+  'index.html',
+  'css/style.css',
+  'js/scripts.js',
+  'manifest.json',
+  'img/Logo-F1.svg',       
+  'img/fia.svg',           
+  'img/f1_tv.svg',
+  'news/index.html',       
+  'results/index.html',   
+  'drivers/index.html',   
+  'reviews/index.html',    
+  'todolist/index.html'
 ];
 
 // кэширование
