@@ -18,7 +18,7 @@ const ASSETS = [
   '/img/Logo-F1.svg',  
 ];
 
-// Установка сервис-воркера и кэширование ресурсов
+// кэширование ресурсов
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -27,7 +27,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Активация и удаление старого кэша
+//  удаление старого кэша
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
