@@ -39,10 +39,17 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      // Кэшируем файлы по одному, чтобы увидеть, на каком именно происходит сбой
+      return Promise.all(
+        ASSETS.map((url) => {
+          return cache.add(url).catch((err) => {
+            console.error('Не удалось кэшировать файл:', url, err);
+          });
+        })
+      );
     })
   );
 });
