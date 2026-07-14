@@ -39,11 +39,18 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Перехват запросов: сначала смотрим в кэше, если нет — берем из сети
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      
+      return Promise.all(
+        ASSETS.map((url) => {
+          return cache.add(url).catch((err) => {
+            console.error(`Не удалось загрузить в кэш: ${url}`, err);
+          });
+        })
+      );
     })
   );
 });
