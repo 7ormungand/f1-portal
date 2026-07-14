@@ -5,7 +5,14 @@ const ASSETS = [
   '/css/style.css',
   '/js/scripts.js',
   '/manifest.json',
-  '/img/Logo-F1.png'
+  '/img/Logo-F1.svg',       
+  '/img/fia.svg',           
+  '/img/f1_tv.svg',
+  '/news/index.html',      
+  '/results/index.html',  
+  '/drivers/index.html',   
+  '/reviews/index.html',   
+  '/todolist/index.html'
 ];
 
 // Установка сервис-воркера и кэширование ресурсов
