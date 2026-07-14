@@ -1,3 +1,21 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBYMAJYuHNWYNkcn5ZfHKGfpza-aWZ5Cfw",
+  authDomain: "f1-portal-51937.firebaseapp.com",
+  projectId: "f1-portal-51937",
+  storageBucket: "f1-portal-51937.firebasestorage.app",
+  messagingSenderId: "414131358854",
+  appId: "1:414131358854:web:f6d70733d732891d151507",
+  measurementId: "G-Z8XQT8BELN"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 
 function renderdriverCard(number, name, team, born, nat, link, img) {
     const driversContainer = document.getElementById('driversContainer');
@@ -23,25 +41,41 @@ function renderdriverCard(number, name, team, born, nat, link, img) {
     c_driver.querySelector('.drive_nat h4').textContent = nat;
     c_driver.querySelector('a').href = link;
     c_driver.querySelector('img').src = img;
-    
 
     driversContainer.insertBefore(c_driver, driversContainer.firstChild);
 }
 
+
 async function loadDrivers() {
     try {
-        const response = await fetch('https://formula-1.com/api/drivers.php');
-        const drivers = await response.json();
+        const querySnapshot = await getDocs(collection(db, "drivers"));
 
         const driversContainer = document.getElementById('driversContainer');
-        if (driversContainer) driversContainer.innerHTML = ''; // Очистка
+        if (driversContainer) driversContainer.innerHTML = ''; // Очистка заглушки
 
+        const drivers = [];
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            drivers.push({
+                number: data.number,
+                name: data.name,
+                team: data.team,
+                born: data.born,
+                nationality: data.nationality,
+                link: data.link,
+                img: data.img
+            });
+        });
+
+        // Сортируем и рендерим гонщиков
         drivers.reverse().forEach(driver => {
-            renderdriverCard(driver.number, driver.name, driver.team, driver.born, driver.nat, driver.link, driver.img);
+            renderdriverCard(driver.number, driver.name, driver.team, driver.born, driver.nationality, driver.link, driver.img);
         });
     } catch (error) {
-        console.error('Ошибка отправки отзыва:', error);
+        console.error('Ошибка загрузки пилотов из Firebase:', error);
     }
 }
 
-loadDrivers();
+document.addEventListener('DOMContentLoaded', () => {
+    loadDrivers();
+});
