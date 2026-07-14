@@ -5,13 +5,17 @@ const ASSETS = [
   '/css/style.css',
   '/js/scripts.js',
   '/manifest.json',
-  '/img/Logo-F1.svg',       
-  '/img/fia.svg',           
-  '/img/f1_tv.svg',
-  '/news/index.html',      
-  '/results/index.html',  
-  '/drivers/index.html',   
-  '/reviews/index.html',   
+  '/img/Logo-F1.svg',    
+
+  '/news/',
+  '/news/index.html',
+  '/results/',
+  '/results/index.html',
+  '/drivers/',
+  '/drivers/index.html',
+  '/reviews/',
+  '/reviews/index.html',
+  '/todolist/',
   '/todolist/index.html'
 ];
 
